@@ -1,77 +1,78 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="2.7.1" version="1.0">
-  <lib desc="#Wiring" name="0">
-    <tool name="Splitter">
-      <a name="fanout" val="8""")/>
-      <a name="incoming" val="8""")/>
-    </tool>
-  </lib>
-  <lib desc="#Gates" name="1""")/>
-  <lib desc="#Base" name="2""")/>
-
-  <!-- Основная схема 8-битного компаратора -->
-  <circuit name="Comp8bit">
-    <a name="circuit" val="Comp8bit""")/>
-    <a name="clabel" val=""")/>
-    <a name="clabelup" val="east""")/>
-    <a name="clabelfont" val="SansSerif plain 12""")/>
-    <wire from="(120,120)" to="(150,120)""")/>
-    <wire from="(120,200)" to="(150,200)""")/>
-    <comp lib="0" loc="(120,120)" name="Pin">
-      <a name="width" val="8""")/>
+<circuit name="задание 6">
+    <a name="circuit" val="задание 6")/>
+    <a name="clabel" val=")/>
+    <a name="clabelup" val="east")/>
+    <a name="clabelfont" val="SansSerif plain 12")/>
+    <wire from="(100,80)" to="(130,80)")/>
+    <wire from="(130,80)" to="(130,120)")/>
+    <wire from="(130,120)" to="(210,120)")/>
+    <wire from="(130,80)" to="(150,80)")/>
+    <wire from="(180,80)" to="(210,80)")/>
+    <wire from="(100,160)" to="(130,160)")/>
+    <wire from="(130,120)" to="(130,160)")/>
+    <wire from="(130,160)" to="(130,200)")/>
+    <wire from="(130,200)" to="(210,200)")/>
+    <wire from="(130,160)" to="(150,160)")/>
+    <wire from="(180,160)" to="(210,160)")/>
+    <wire from="(260,100)" to="(300,100)")/>
+    <wire from="(260,180)" to="(300,180)")/>
+    <comp lib="0" loc="(100,80)" name="Pin">
+      <a name="tristate" val="false")/>
+      <a name="label" val="a")/>
+    </comp>
+    <comp lib="0" loc="(100,160)" name="Pin">
       <a name="tristate" val="false""")/>
+      <a name="label" val="b")/>
+    </comp>
+    <comp lib="1" loc="(180,80)" name="NOT Gate")/>
+    <comp lib="1" loc="(180,160)" name="NOT Gate")/>
+    <comp lib="1" loc="(260,100)" name="AND Gate">
+      <a name="size" val="30")/>
+      <a name="inputs" val="2")/>
+      <a name="label" val="a&lt;b")/>
+    </comp>
+    <comp lib="1" loc="(260,180)" name="AND Gate">
+      <a name="size" val="30")/>
+      <a name="inputs" val="2")/>
+      <a name="label" val="a&gt;b")/>
+    </comp>
+    <comp lib="0" loc="(300,100)" name="Pin">
+      <a name="facing" val="west")/>
+      <a name="output" val="true")/>
+      <a name="label" val="LT")/>
+    </comp>
+    <comp lib="0" loc="(300,180)" name="Pin">
+      <a name="facing" val="west")/>
+      <a name="output" val="true")/>
+      <a name="label" val="GT")/>
+    </comp>
+  </circuit>
+  <circuit name="задание 7">
+    <a name="circuit" val="задание 7")/>
+    <a name="clabel" val=")/>
+    <a name="clabelup" val="east")/>
+    <a name="clabelfont" val="SansSerif plain 12")/>>
+    <wire from="(120,120)" to="(160,120)")/>
+    <wire from="(120,200)" to="(160,200)")/>
+    <comp lib="0" loc="(120,120)" name="Pin">
+      <a name="width" val="8")/>
+      <a name="tristate" val="false")/>
       <a name="label" val="A""")/>
     </comp>
     <comp lib="0" loc="(120,200)" name="Pin">
-      <a name="width" val="8""")/>
-      <a name="tristate" val="false""")/>
-      <a name="label" val="B""")/>
+      <a name="width" val="8")/>
+      <a name="tristate" val="false")/>
+      <a name="label" val="B")/>
     </comp>
-    <!-- Здесь располагаются блоки Comp1bit -->
-    <comp loc="(300,120)" name="Comp1bit">
-      <a name="label" val="bit_compare""")/>
+    <comp lib="0" loc="(160,120)" name="Splitter">
+      <a name="fanout" val="8")/>
+      <a name="incoming" val="8")/>
     </comp>
-    <comp lib="0" loc="(400,120)" name="Pin">
-      <a name="facing" val="west""")/>
-      <a name="output" val="true""")/>
-      <a name="label" val="A=B""")/>
-      <a name="labelloc" val="east""")/>
+    <comp lib="0" loc="(160,200)" name="Splitter">
+      <a name="fanout" val="8")/>
+      <a name="incoming" val="8")/>
     </comp>
-  </circuit>
-
-  <!-- Подсхема 1-битного компаратора (Задание 6) -->
-  <circuit name="Comp1bit">
-    <a name="circuit" val="Comp1bit""")/>
-    <a name="clabel" val="1bit""")/>
-    <a name="clabelup" val="north""")/>
-    <a name="clabelfont" val="SansSerif plain 12""")/>
-    <wire from="(100,80)" to="(130,80)""")/>
-    <wire from="(100,120)" to="(120,120)""")/>
-    <wire from="(120,120)" to="(210,120)""")/>
-    <wire from="(130,180)" to="(210,180)""")/>
-    <wire from="(130,80)" to="(150,80)""")/>
-    <wire from="(120,220)" to="(210,220)""")/>
-    <wire from="(130,80)" to="(130,180)""")/>
-    <wire from="(120,120)" to="(120,220)""")/>
-    <wire from="(180,80)" to="(210,80)""")/>
-    <wire from="(180,120)" to="(210,120)""")/>
-    <comp lib="0" loc="(100,120)" name="Pin">
-      <a name="tristate" val="false""")/>
-      <a name="label" val="b""")/>
-    </comp>
-    <comp lib="1" loc="(180,80)" name="NOT Gate""")/>
-    <comp lib="1" loc="(180,120)" name="NOT Gate""")/>
-    <comp lib="1" loc="(260,100)" name="AND Gate">
-      <a name="inputs" val="2""")/>
-      <a name="label" val="A&lt;B""")/>
-    </comp>
-    <comp lib="1" loc="(260,200)" name="AND Gate">
-      <a name="inputs" val="2""")/>
-      <a name="label" val="A&gt;B""")/>
-    </comp>
-    <comp lib="0" loc="(100,80)" name="Pin">
-      <a name="tristate" val="false""")/>
-      <a name="label" val="a""")/>
+    <comp lib="6" loc="(280,50)" name="Text">
+      <a name="text" val="Используйте блоки 'задание 6' для сравнения бит")/>
     </comp>
   </circuit>
-</project>
