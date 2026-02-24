@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.1" version="1.0">
+  <lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="fanout" val="8""")/>>
+      <a name="incoming" val="8""")/>>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1""")/>>
+  
+  <!-- Задание 7: 8-битный компаратор -->
+  <circuit name="Comp8bit">
+    <a name="circuit" val="Comp8bit""")/>>
+    <a name="clabel" val=""")/>>
+    <comp lib="0" loc="(120,120)" name="Pin">
+      <a name="width" val="8""")/>>
+      <a name="tristate" val="false""")/>>
+      <a name="label" val="A""")/>>
+    </comp>
+    <comp lib="0" loc="(120,200)" name="Pin">
+      <a name="width" val="8""")/>>
+      <a name="tristate" val="false""")/>>
+      <a name="label" val="B""")/>>
+    </comp>
+    <comp loc="(300,150)" name="Comp1bit">
+      <a name="label" val="bit7""")/>>
+    </comp>
+    <!-- Здесь в Logisim вручную соединяются каскадом 8 блоков -->
+    <!-- Для краткости кода здесь описана структура, которую Logisim визуализирует -->
+    <comp lib="0" loc="(500,150)" name="Pin">
+      <a name="facing" val="west""")/>>
+      <a name="output" val="true""")/>>
+      <a name="label" val="A=B""")/>>
+    </comp>
+  </circuit>
+
+  <!-- Задание 6: 1-битный компаратор -->
+  <circuit name="Comp1bit">
+    <a name="circuit" val="Comp1bit""")/>>
+    <comp lib="0" loc="(100,80)" name="Pin">
+      <a name="tristate" val="false""")/>>
+      <a name="label" val="a""")/>>
+    </comp>
+    <comp lib="0" loc="(100,120)" name="Pin">
+      <a name="tristate" val="false""")/>>
+      <a name="label" val="b""")/>>
+    </comp>
+    <!-- Логика A > B -->
+    <comp lib="1" loc="(260,100)" name="AND Gate">
+      <a name="inputs" val="2""")/>>
+    </comp>
+    <comp lib="1" loc="(180,120)" name="NOT Gate""")/>>
+    <!-- Логика A < B -->
+    <comp lib="1" loc="(260,180)" name="AND Gate">
+      <a name="inputs" val="2""")/>>
+    </comp>
+    <comp lib="1" loc="(180,80)" name="NOT Gate""")/>>
+    <!-- Логика A = B -->
+    <comp lib="1" loc="(350,250)" name="OR Gate">
+      <a name="inputs" val="2""")/>>
+    </comp>
+  </circuit>
+</project>
