@@ -7,11 +7,16 @@
     </tool>
   </lib>
   <lib desc="#Gates" name="1""")/>>
-  
-  <!-- Задание 7: 8-битный компаратор -->
+  <lib desc="#Base" name="2""")/>>
+
+  <!-- Основная схема 8-битного компаратора -->
   <circuit name="Comp8bit">
     <a name="circuit" val="Comp8bit""")/>>
     <a name="clabel" val=""")/>>
+    <a name="clabelup" val="east""")/>>
+    <a name="clabelfont" val="SansSerif plain 12""")/>>
+    <wire from="(120,120)" to="(150,120)""")/>>
+    <wire from="(120,200)" to="(150,200)""")/>>
     <comp lib="0" loc="(120,120)" name="Pin">
       <a name="width" val="8""")/>>
       <a name="tristate" val="false""")/>>
@@ -22,42 +27,51 @@
       <a name="tristate" val="false""")/>>
       <a name="label" val="B""")/>>
     </comp>
-    <comp loc="(300,150)" name="Comp1bit">
-      <a name="label" val="bit7""")/>>
+    <!-- Здесь располагаются блоки Comp1bit -->
+    <comp loc="(300,120)" name="Comp1bit">
+      <a name="label" val="bit_compare""")/>>
     </comp>
-    <!-- Здесь в Logisim вручную соединяются каскадом 8 блоков -->
-    <!-- Для краткости кода здесь описана структура, которую Logisim визуализирует -->
-    <comp lib="0" loc="(500,150)" name="Pin">
+    <comp lib="0" loc="(400,120)" name="Pin">
       <a name="facing" val="west""")/>>
       <a name="output" val="true""")/>>
       <a name="label" val="A=B""")/>>
+      <a name="labelloc" val="east""")/>>
     </comp>
   </circuit>
 
-  <!-- Задание 6: 1-битный компаратор -->
+  <!-- Подсхема 1-битного компаратора (Задание 6) -->
   <circuit name="Comp1bit">
     <a name="circuit" val="Comp1bit""")/>>
-    <comp lib="0" loc="(100,80)" name="Pin">
-      <a name="tristate" val="false""")/>>
-      <a name="label" val="a""")/>>
-    </comp>
+    <a name="clabel" val="1bit""")/>>
+    <a name="clabelup" val="north""")/>>
+    <a name="clabelfont" val="SansSerif plain 12""")/>>
+    <wire from="(100,80)" to="(130,80)""")/>>
+    <wire from="(100,120)" to="(120,120)""")/>>
+    <wire from="(120,120)" to="(210,120)""")/>>
+    <wire from="(130,180)" to="(210,180)""")/>>
+    <wire from="(130,80)" to="(150,80)""")/>>
+    <wire from="(120,220)" to="(210,220)""")/>>
+    <wire from="(130,80)" to="(130,180)""")/>>
+    <wire from="(120,120)" to="(120,220)""")/>>
+    <wire from="(180,80)" to="(210,80)""")/>>
+    <wire from="(180,120)" to="(210,120)""")/>>
     <comp lib="0" loc="(100,120)" name="Pin">
       <a name="tristate" val="false""")/>>
       <a name="label" val="b""")/>>
     </comp>
-    <!-- Логика A > B -->
+    <comp lib="1" loc="(180,80)" name="NOT Gate""")/>>
+    <comp lib="1" loc="(180,120)" name="NOT Gate""")/>>
     <comp lib="1" loc="(260,100)" name="AND Gate">
       <a name="inputs" val="2""")/>>
+      <a name="label" val="A&lt;B""")/>>
     </comp>
-    <comp lib="1" loc="(180,120)" name="NOT Gate""")/>>
-    <!-- Логика A < B -->
-    <comp lib="1" loc="(260,180)" name="AND Gate">
+    <comp lib="1" loc="(260,200)" name="AND Gate">
       <a name="inputs" val="2""")/>>
+      <a name="label" val="A&gt;B""")/>>
     </comp>
-    <comp lib="1" loc="(180,80)" name="NOT Gate""")/>>
-    <!-- Логика A = B -->
-    <comp lib="1" loc="(350,250)" name="OR Gate">
-      <a name="inputs" val="2""")/>>
+    <comp lib="0" loc="(100,80)" name="Pin">
+      <a name="tristate" val="false""")/>>
+      <a name="label" val="a""")/>>
     </comp>
   </circuit>
 </project>
